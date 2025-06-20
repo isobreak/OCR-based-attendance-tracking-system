@@ -1,0 +1,9 @@
+.venv
+data/*
+!data/results
+src/*
+!src/app
+!src/classic
+!src/detection
+**.idea
+**/__pycache__/

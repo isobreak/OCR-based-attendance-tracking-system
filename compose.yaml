@@ -1,0 +1,40 @@
+services:
+  fastapi:
+    build: .
+    ports:
+      - "8000:8000"
+    restart: always
+    env_file:
+      - .env
+    networks:
+      - application_network
+    depends_on:
+      - rabbitmq
+      - celery
+    command: ["uvicorn", "--host", "0.0.0.0", "--port", "8000", "main:app"]
+
+  celery:
+    build: .
+    restart: always
+    env_file:
+      - .env
+    networks:
+      - application_network
+    depends_on:
+      - rabbitmq
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [ gpu ]
+
+  rabbitmq:
+    image: rabbitmq:latest
+    networks:
+      - application_network
+
+networks:
+  application_network:
+    driver: bridge
