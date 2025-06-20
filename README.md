@@ -100,7 +100,7 @@ This example shows the result of [TrOCR](https://arxiv.org/abs/2109.10282) appli
 
 This is the recommended way to run OCR-based attendance tracking system. Docker Compose simplifies the process by managing all necessary services and dependencies.
 
-## Prerequisites
+### Prerequisites
 
 Before you begin, ensure you have the following prerequisites met:
 
