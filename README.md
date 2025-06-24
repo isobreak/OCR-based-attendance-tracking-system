@@ -169,7 +169,8 @@ The `result` data returned by the `/task/{task_id}` endpoint is a JSON object co
 
 ```json
 {
-  "status": "completed",
+  "ready": "true",
+  "successful": "true",
   "result": {
     "ids": [],
     "scores": [],
